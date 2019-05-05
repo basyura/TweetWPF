@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eleve;
+using Tweetinvi.Models;
 
 namespace TweetWPF.ViewModels
 {
@@ -20,6 +21,15 @@ namespace TweetWPF.ViewModels
                 _Message = value;
                 RaisePropertyChanged();
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private ObservableCollection<ITweet> _Tweets = new ObservableCollection<ITweet>();
+        public ObservableCollection<ITweet> Tweets
+        {
+            get { return _Tweets; }
+            set { SetProperty(ref _Tweets, value); }
         }
     }
 }

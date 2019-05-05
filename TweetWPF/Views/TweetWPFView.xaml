@@ -18,16 +18,21 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="Hello" Width="50" Height="50" Margin="10">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <ev:Execute Action="Hello" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </Button>
         <TextBlock Grid.Row="1" Text="{Binding Message}" TextAlignment="Center" />
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Tweets}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ScreenName" Binding="{Binding CreatedBy.Name }" Width="100" />
+                <DataGridTemplateColumn Header="Full Text" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>        
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </ev:ViewBase>
