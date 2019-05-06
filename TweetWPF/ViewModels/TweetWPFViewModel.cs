@@ -55,21 +55,24 @@ namespace TweetWPF.ViewModels
             get { return _Tweets; }
             set { SetProperty(ref _Tweets, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary></summary>
         private ObservableCollection<ITweet> _Mentions = new ObservableCollection<ITweet>();
         public ObservableCollection<ITweet> Mentions
         {
             get { return _Mentions; }
             set { SetProperty(ref _Mentions, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary></summary>
         public bool TweetButtonEnabled
         {
             get { return User != null; }
+        }
+        /// <summary></summary>
+        private string _SelectedTabHeader;
+        public string SelectedTabHeader
+        {
+            get { return _SelectedTabHeader; }
+            set { SetProperty(ref _SelectedTabHeader, value); }
         }
     }
 }

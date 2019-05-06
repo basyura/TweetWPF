@@ -48,12 +48,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <Compile Include="Actions\TweetWPF\PostTweet.cs" />
+    <Compile Include="Actions\TweetWPF\Reload.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Behaviors\TextBoxLinesBehavior.cs" />
     <Compile Include="Controls\Coverters\CreatedAtConverter.cs" />
     <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
+    <Compile Include="Controls\Coverters\SelectedTabItemConverter.cs" />
     <Compile Include="Controls\TimelineView.xaml.cs">
       <DependentUpon>TimelineView.xaml</DependentUpon>
     </Compile>

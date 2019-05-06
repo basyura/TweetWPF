@@ -13,6 +13,10 @@
         <vm:TweetWPFViewModel />
     </ev:ViewBase.DataContext>
 
+    <ev:ViewBase.Resources>
+        <conv:SelectedTabItemConverter x:Key="SelectedTabItemConverter" />
+    </ev:ViewBase.Resources>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <ev:Execute Action="Initialize" />
@@ -48,7 +52,7 @@
                 </i:Interaction.Triggers>
             </Button>
         </Grid>
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1" SelectedValue="{Binding SelectedTabHeader, Converter={StaticResource SelectedTabItemConverter}}">
             <TabItem Header="Home">
                 <ctrl:TimelineView ItemsSource="{Binding Tweets}" />
             </TabItem>
@@ -56,5 +60,15 @@
                 <ctrl:TimelineView ItemsSource="{Binding Mentions}" />
             </TabItem>
         </TabControl>
+        <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="5">
+            <ContentControl>
+                <TextBlock Text="🔃" Foreground="Blue" />
+            </ContentControl>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <ev:Execute Action="Reload" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </Grid>
 </ev:ViewBase>
