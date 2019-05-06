@@ -13,7 +13,6 @@ namespace TweetWPF.Actions.TweetWPF
         public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
             IAuthenticatedUser user = Authenticate();
-
             if (user == null)
             {
                 ViewModel.Message = "failed to authenticate.";

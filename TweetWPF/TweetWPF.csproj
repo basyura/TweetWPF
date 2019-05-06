@@ -50,6 +50,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Coverters\CreatedAtConverter.cs" />
+    <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
     <Compile Include="ViewModels\TweetWPFViewModel.cs" />
     <Compile Include="Actions\TweetWPF\TweetWPFActionBase.cs" />
     <Compile Include="Actions\TweetWPF\Initialize.cs" />
@@ -79,6 +81,7 @@
       <Version>4.0.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
