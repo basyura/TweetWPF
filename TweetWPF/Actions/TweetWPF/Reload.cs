@@ -22,12 +22,16 @@ namespace TweetWPF.Actions.TweetWPF
         /// <returns></returns>
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
+            ViewModel.IsReloadEnabled = false;
+
             string header = ViewModel.SelectedTabHeader;
 
             if (header == "Home")
             {
                 ReloadHomeTimeline();
             }
+
+            ViewModel.IsReloadEnabled = true;
 
             return SuccessTask;
         }
@@ -37,6 +41,10 @@ namespace TweetWPF.Actions.TweetWPF
         private void ReloadHomeTimeline()
         {
             IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
+            if (tweets == null)
+            {
+                return;
+            }
             ITweet last = ViewModel.Tweets.FirstOrDefault();
 
             foreach (ITweet tweet in tweets.Reverse())

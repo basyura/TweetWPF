@@ -6,6 +6,10 @@ namespace TweetWPF.Controls.Behaviors
 {
     public class TextBoxLinesBehavior : Behavior<TextBox>
     {
+        /// <summary></summary>
+        private double? InitialHeight { get; set; }
+        /// <summary></summary>
+        private double? FocusedtHeight { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -33,7 +37,16 @@ namespace TweetWPF.Controls.Behaviors
         private void AssociatedObject_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox text = sender as TextBox;
-            text.MinHeight = 45;
+            if (FocusedtHeight == null)
+            {
+                InitialHeight = text.ActualHeight;
+                // don't work
+                text.MinLines = 3;
+            }
+            else
+            {
+                text.Height = FocusedtHeight.Value;
+            }
         }
         /// <summary>
         /// 
@@ -43,7 +56,13 @@ namespace TweetWPF.Controls.Behaviors
         private void AssociatedObject_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox text = sender as TextBox;
-            text.MinHeight = 0;
+            if (FocusedtHeight == null)
+            {
+                FocusedtHeight = text.ActualHeight;
+            }
+            text.Height = InitialHeight.Value;
+            // don't work
+            text.MinLines = 1;
         }
     }
 }

@@ -27,17 +27,24 @@ namespace TweetWPF.Actions.TweetWPF
             }
 
             ViewModel.User = user;
+            ViewModel.IsReloadEnabled = true;
 
             IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
-            foreach (ITweet tweet in tweets)
+            if (tweets != null)
             {
-                ViewModel.Tweets.Add(tweet);
+                foreach (ITweet tweet in tweets)
+                {
+                    ViewModel.Tweets.Add(tweet);
+                }
             }
 
             IEnumerable<ITweet> mentions = Timeline.GetMentionsTimeline();
-            foreach (ITweet mention in mentions)
+            if (mentions != null)
             {
-                ViewModel.Mentions.Add(mention);
+                foreach (ITweet mention in mentions)
+                {
+                    ViewModel.Mentions.Add(mention);
+                }
             }
 
             return SuccessTask;

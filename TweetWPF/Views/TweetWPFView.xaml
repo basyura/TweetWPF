@@ -8,7 +8,7 @@
         xmlns:ctrl="clr-namespace:TweetWPF.Controls"
         xmlns:bhvr="clr-namespace:TweetWPF.Controls.Behaviors"
         Title="{Binding Title}" Height="600" Width="400">
-    
+
     <ev:ViewBase.DataContext>
         <vm:TweetWPFViewModel />
     </ev:ViewBase.DataContext>
@@ -22,7 +22,9 @@
             <ev:Execute Action="Initialize" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -38,13 +40,7 @@
                     <bhvr:TextBoxLinesBehavior/>
                 </i:Interaction.Behaviors>
             </TextBox>
-            <Button Grid.Column="1" Padding="5" IsEnabled="{Binding TweetButtonEnabled}">
-                <ContentControl>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Tweet" />
-                        <TextBlock Text="(0)" TextAlignment="Center" Visibility="Collapsed" />
-                    </StackPanel>
-                </ContentControl>
+            <Button Grid.Column="1" Padding="5" Content="Tweet" IsEnabled="{Binding IsTweetEnabled}" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click" >
                         <ev:Execute Action="PostTweet" />
@@ -53,17 +49,15 @@
             </Button>
         </Grid>
         <TabControl Grid.Row="1" SelectedValue="{Binding SelectedTabHeader, Converter={StaticResource SelectedTabItemConverter}}">
-            <TabItem Header="Home">
+            <TabItem Header="Home" Height="30">
                 <ctrl:TimelineView ItemsSource="{Binding Tweets}" />
             </TabItem>
-            <TabItem Header="Mention">
+            <TabItem Header="Mention" Height="30">
                 <ctrl:TimelineView ItemsSource="{Binding Mentions}" />
             </TabItem>
         </TabControl>
-        <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="5">
-            <ContentControl>
-                <TextBlock Text="🔃" Foreground="Blue" />
-            </ContentControl>
+        <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="43" Height="30"  Margin="0 2 0 0" 
+                Content="Reload" IsEnabled="{Binding IsReloadEnabled}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <ev:Execute Action="Reload" />

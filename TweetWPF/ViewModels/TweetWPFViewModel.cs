@@ -29,7 +29,7 @@ namespace TweetWPF.ViewModels
             {
                 _User = value;
                 RaisePropertyChanged(() => Title);
-                RaisePropertyChanged(() => TweetButtonEnabled);
+                RaisePropertyChanged(() => IsTweetEnabled);
             }
         }
         /// <summary></summary>
@@ -63,9 +63,16 @@ namespace TweetWPF.ViewModels
             set { SetProperty(ref _Mentions, value); }
         }
         /// <summary></summary>
-        public bool TweetButtonEnabled
+        public bool IsTweetEnabled
         {
             get { return User != null; }
+        }
+        /// <summary></summary>
+        private bool _IsReloadEnabled = false;
+        public bool IsReloadEnabled
+        {
+            get { return _IsReloadEnabled; }
+            set { SetProperty(ref _IsReloadEnabled, value); }
         }
         /// <summary></summary>
         private string _SelectedTabHeader;
