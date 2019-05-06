@@ -29,6 +29,7 @@ namespace TweetWPF.ViewModels
             {
                 _User = value;
                 RaisePropertyChanged(() => Title);
+                RaisePropertyChanged(() => TweetButtonEnabled);
             }
         }
         /// <summary></summary>
@@ -37,6 +38,13 @@ namespace TweetWPF.ViewModels
         {
             get { return _Message; }
             set { SetProperty(ref _Message, value); }
+        }
+        /// <summary></summary>
+        private string _TweetText;
+        public string TweetText
+        {
+            get { return _TweetText; }
+            set { SetProperty(ref _TweetText, value); }
         }
         /// <summary>
         /// 
@@ -55,6 +63,13 @@ namespace TweetWPF.ViewModels
         {
             get { return _Mentions; }
             set { SetProperty(ref _Mentions, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TweetButtonEnabled
+        {
+            get { return User != null; }
         }
     }
 }

@@ -18,7 +18,7 @@
             <DataGridTemplateColumn Header="ScreenName" Width="100" >
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="5">
                             <TextBlock Text="{Binding CreatedBy.Name }"/>
                             <TextBlock Text="{Binding CreatedBy.ScreenName, Converter={StaticResource ScreenNameConverter}}" />
                             <TextBlock Text="{Binding CreatedAt, Converter={StaticResource CreatedAtConverter }}" TextAlignment="Right" />
@@ -29,7 +29,7 @@
             <DataGridTemplateColumn Header="Full Text" Width="*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" Margin="5"/>
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>        
             </DataGridTemplateColumn>

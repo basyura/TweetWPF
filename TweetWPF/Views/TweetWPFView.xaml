@@ -6,6 +6,7 @@
         xmlns:vm="clr-namespace:TweetWPF.ViewModels"
         xmlns:conv="clr-namespace:TweetWPF.Controls.Coverters"
         xmlns:ctrl="clr-namespace:TweetWPF.Controls"
+        xmlns:bhvr="clr-namespace:TweetWPF.Controls.Behaviors"
         Title="{Binding Title}" Height="600" Width="400">
     
     <ev:ViewBase.DataContext>
@@ -20,10 +21,33 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="{Binding Message}" TextAlignment="Left" Padding="5" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Row="0" Text="{Binding TweetText}" TextAlignment="Left" Padding="5" TextWrapping="WrapWithOverflow" AcceptsReturn="True">
+                <i:Interaction.Behaviors>
+                    <bhvr:TextBoxLinesBehavior/>
+                </i:Interaction.Behaviors>
+            </TextBox>
+            <Button Grid.Column="1" Padding="5" IsEnabled="{Binding TweetButtonEnabled}">
+                <ContentControl>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Tweet" />
+                        <TextBlock Text="(0)" TextAlignment="Center" Visibility="Collapsed" />
+                    </StackPanel>
+                </ContentControl>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click" >
+                        <ev:Execute Action="PostTweet" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
         <TabControl Grid.Row="1">
             <TabItem Header="Home">
                 <ctrl:TimelineView ItemsSource="{Binding Tweets}" />
