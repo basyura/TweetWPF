@@ -5,17 +5,13 @@
         xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
         xmlns:vm="clr-namespace:TweetWPF.ViewModels"
         xmlns:conv="clr-namespace:TweetWPF.Controls.Coverters"
-        Title="MainWindow" Height="600" Width="400">
+        xmlns:ctrl="clr-namespace:TweetWPF.Controls"
+        Title="TweetWPF" Height="600" Width="400">
     
     <ev:ViewBase.DataContext>
         <vm:TweetWPFViewModel />
     </ev:ViewBase.DataContext>
 
-    <ev:ViewBase.Resources>
-        <conv:ScreenNameConverter x:Key="ScreenNameConverter" />
-        <conv:CreatedAtConverter x:Key="CreatedAtConverter" />
-    </ev:ViewBase.Resources>
-    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <ev:Execute Action="Initialize" />
@@ -27,28 +23,14 @@
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Text="{Binding Message}" TextAlignment="Center" />
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Tweets}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="ScreenName" Width="100" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                                <TextBlock Text="{Binding CreatedBy.Name }"/>
-                                <TextBlock Text="{Binding CreatedBy.ScreenName, Converter={StaticResource ScreenNameConverter}}" />
-                                <TextBlock Text="{Binding CreatedAt, Converter={StaticResource CreatedAtConverter }}" TextAlignment="Right" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Full Text" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>        
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <TextBlock Grid.Row="0" Text="{Binding Message}" TextAlignment="Left" Padding="5" />
+        <TabControl Grid.Row="1">
+            <TabItem Header="Home">
+                <ctrl:TimelineView ItemsSource="{Binding Tweets}" />
+            </TabItem>
+            <TabItem Header="Mention">
+                <ctrl:TimelineView ItemsSource="{Binding Mentions}" />
+            </TabItem>
+        </TabControl>
     </Grid>
 </ev:ViewBase>

@@ -13,17 +13,14 @@ namespace TweetWPF.ViewModels
         public TweetWPFViewModel()
         {
             BindingOperations.EnableCollectionSynchronization(_Tweets, new object());
+            BindingOperations.EnableCollectionSynchronization(_Mentions, new object());
         }
         /// <summary></summary>
         private string _Message;
         public string Message
         {
             get { return _Message; }
-            set
-            {
-                _Message = value;
-                RaisePropertyChanged();
-            }
+            set { SetProperty(ref _Message, value); }
         }
         /// <summary>
         /// 
@@ -33,6 +30,15 @@ namespace TweetWPF.ViewModels
         {
             get { return _Tweets; }
             set { SetProperty(ref _Tweets, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private ObservableCollection<ITweet> _Mentions = new ObservableCollection<ITweet>();
+        public ObservableCollection<ITweet> Mentions
+        {
+            get { return _Mentions; }
+            set { SetProperty(ref _Mentions, value); }
         }
     }
 }

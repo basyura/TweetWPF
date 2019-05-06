@@ -52,11 +52,17 @@
     </Compile>
     <Compile Include="Controls\Coverters\CreatedAtConverter.cs" />
     <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
+    <Compile Include="Controls\TimelineView.xaml.cs">
+      <DependentUpon>TimelineView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\TweetWPFViewModel.cs" />
     <Compile Include="Actions\TweetWPF\TweetWPFActionBase.cs" />
     <Compile Include="Actions\TweetWPF\Initialize.cs" />
-    <Compile Include="Actions\TweetWPF\Hello.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Controls\TimelineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TweetWPFView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
