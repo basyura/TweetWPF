@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:TweetWPF.ViewModels"
         xmlns:conv="clr-namespace:TweetWPF.Controls.Coverters"
         xmlns:ctrl="clr-namespace:TweetWPF.Controls"
-        Title="TweetWPF" Height="600" Width="400">
+        Title="{Binding Title}" Height="600" Width="400">
     
     <ev:ViewBase.DataContext>
         <vm:TweetWPFViewModel />

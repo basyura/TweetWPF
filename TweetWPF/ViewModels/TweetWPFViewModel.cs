@@ -16,6 +16,22 @@ namespace TweetWPF.ViewModels
             BindingOperations.EnableCollectionSynchronization(_Mentions, new object());
         }
         /// <summary></summary>
+        public string Title
+        {
+            get { return User == null ? "TweetWPF" : $"TweetWPF - @{User.ScreenName}"; }
+        }
+        /// <summary></summary>
+        public IAuthenticatedUser _User;
+        public IAuthenticatedUser User
+        {
+            get { return _User; }
+            set
+            {
+                _User = value;
+                RaisePropertyChanged(() => Title);
+            }
+        }
+        /// <summary></summary>
         private string _Message;
         public string Message
         {

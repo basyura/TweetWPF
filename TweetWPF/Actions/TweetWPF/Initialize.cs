@@ -26,7 +26,7 @@ namespace TweetWPF.Actions.TweetWPF
                 return SuccessTask;
             }
 
-            ViewModel.Message = "@" + user.ScreenName;
+            ViewModel.User = user;
 
             IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
             foreach (ITweet tweet in tweets)
