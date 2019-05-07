@@ -13,7 +13,7 @@
         <conv:CreatedAtConverter x:Key="CreatedAtConverter" />
     </UserControl.Resources>
     
-    <DataGrid Name="Timeline" AutoGenerateColumns="False">
+    <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single">
         <DataGrid.Columns>
             <DataGridTemplateColumn Header="ScreenName" Width="100" >
                 <DataGridTemplateColumn.CellTemplate>
