@@ -15,7 +15,20 @@ namespace TweetWPF.Controls
         public TimelineView()
         {
             InitializeComponent();
+
+            // todo
+            Timeline.SelectionChanged += Timeline_SelectionChanged;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timeline_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedItem = e.AddedItems[0];
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -31,6 +44,22 @@ namespace TweetWPF.Controls
         {
             get { return (IEnumerable)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register(
+            "SelectedItem", typeof(object), typeof(TimelineView), new PropertyMetadata(null, (d, e) => {
+                TimelineView view = d as TimelineView;
+                view.Timeline.SelectedItem = e.NewValue;
+            }));
+        /// <summary>
+        /// 
+        /// </summary>
+        public object SelectedItem
+        {
+            get { return (object)GetValue(SelectedItemProperty); }
+            set { SetValue(SelectedItemProperty, value); }
         }
     }
 }
