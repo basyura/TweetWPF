@@ -13,6 +13,7 @@
     <UserControl.Resources>
         <conv:ScreenNameConverter x:Key="ScreenNameConverter" />
         <conv:CreatedAtConverter x:Key="CreatedAtConverter" />
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
     
     <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single">
@@ -60,7 +61,10 @@
             <DataGridTemplateColumn Header="Full Text" Width="*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" Margin="5"/>
+                        <StackPanel>
+                            <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" Margin="5"/>
+                            <TextBlock Text="❤" Visibility="{Binding Favorited, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        </StackPanel>
                     </DataTemplate>
                 </DataGridTemplateColumn.CellTemplate>        
             </DataGridTemplateColumn>

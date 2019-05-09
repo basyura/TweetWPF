@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Controls\Behaviors\TextBoxLinesBehavior.cs" />
     <Compile Include="Controls\Coverters\CreatedAtConverter.cs" />
+    <Compile Include="Controls\Coverters\BoolToVisibilityConverter.cs" />
     <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
     <Compile Include="Controls\Coverters\SelectedTabItemConverter.cs" />
     <Compile Include="Controls\TimelineView.xaml.cs">

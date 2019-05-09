@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Windows;
 using System.Threading.Tasks;
 using Eleve;
+using Tweetinvi;
 using Tweetinvi.Models;
 
 namespace TweetWPF.Actions.TweetWPF
@@ -19,6 +19,12 @@ namespace TweetWPF.Actions.TweetWPF
             ITweet tweet = ViewModel.SelectedTweet;
             if (tweet == null)
             {
+                return SuccessTask;
+            }
+
+            if (key == "fav")
+            {
+                Tweet.FavoriteTweet(tweet);
                 return SuccessTask;
             }
 
