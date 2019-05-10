@@ -28,6 +28,16 @@ namespace TweetWPF.Actions.TweetWPF
                 return SuccessTask;
             }
 
+            if (key == "rewtweet")
+            {
+                Tweet.PublishRetweet(tweet);
+                return SuccessTask;
+            }
+
+            if (key == "reply")
+            {
+            }
+
             return SuccessTask;
         }
     }
