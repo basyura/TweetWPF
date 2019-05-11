@@ -50,7 +50,15 @@
         </Grid>
         <TabControl Grid.Row="1" SelectedValue="{Binding SelectedTabHeader, Converter={StaticResource SelectedTabItemConverter}}">
             <TabItem Header="Home" Height="30">
-                <ctrl:TimelineView ItemsSource="{Binding Tweets}" SelectedItem="{Binding SelectedTweet, Mode=TwoWay}" />
+                <Border>
+                    <ctrl:TimelineView ItemsSource="{Binding Tweets}" SelectedItem="{Binding SelectedTweet, Mode=TwoWay}" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDoubleClick">
+                                <ev:Execute Action="ShowDetail" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ctrl:TimelineView>
+                </Border>
             </TabItem>
             <TabItem Header="Mention" Height="30">
                 <ctrl:TimelineView ItemsSource="{Binding Mentions}" SelectedItem="{Binding SelectedTweet, Mode=TwoWay}" />

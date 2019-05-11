@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Actions\TweetWPF\BackToTimeline.cs" />
     <Compile Include="Actions\TweetWPF\PostTweet.cs" />
     <Compile Include="Actions\TweetWPF\Reload.cs" />
     <Compile Include="Actions\TweetWPF\SelectTweetMenu.cs" />
+    <Compile Include="Actions\TweetWPF\ShowDetail.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -58,6 +62,9 @@
     <Compile Include="Controls\Coverters\BoolToVisibilityConverter.cs" />
     <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
     <Compile Include="Controls\Coverters\SelectedTabItemConverter.cs" />
+    <Compile Include="Controls\DetailView.xaml.cs">
+      <DependentUpon>DetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TimelineView.xaml.cs">
       <DependentUpon>TimelineView.xaml</DependentUpon>
     </Compile>
@@ -65,6 +72,10 @@
     <Compile Include="Actions\TweetWPF\TweetWPFActionBase.cs" />
     <Compile Include="Actions\TweetWPF\Initialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Controls\DetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TimelineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
