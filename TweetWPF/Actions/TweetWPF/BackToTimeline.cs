@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +12,7 @@ namespace TweetWPF.Actions.TweetWPF
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
+            // todo : find view
             FrameworkElement ele = sender as FrameworkElement;
             while (!(ele is DetailView))
             {
@@ -22,8 +20,8 @@ namespace TweetWPF.Actions.TweetWPF
             }
 
             DetailView detail = ele as DetailView;
-            Border border = detail.Parent as Border;
-            border.Child = detail.TimelineView;
+            Grid grid = detail.Parent as Grid;
+            grid.Children.Remove(detail);
 
             return SuccessTask;
         }

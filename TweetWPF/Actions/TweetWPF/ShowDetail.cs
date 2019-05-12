@@ -13,16 +13,14 @@ namespace TweetWPF.Actions.TweetWPF
         {
             TimelineView view = sender as TimelineView;
 
-            Border border = view.Parent as Border;
+            Grid grid = view.Parent as Grid;
 
-            DetailView detail = new DetailView(view)
+            DetailView detail = new DetailView()
             {
                 DataContext = ViewModel.SelectedTweet
             };
 
-            border.Child = detail;
-
-
+            grid.Children.Add(detail);
 
             return SuccessTask;
         }

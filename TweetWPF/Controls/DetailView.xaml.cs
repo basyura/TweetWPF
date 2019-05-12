@@ -20,12 +20,9 @@ namespace TweetWPF.Controls
     /// </summary>
     public partial class DetailView : UserControl
     {
-        public DetailView(TimelineView view)
+        public DetailView()
         {
             InitializeComponent();
-            TimelineView = view;
         }
-
-        public TimelineView TimelineView { get; private set; }
     }
 }

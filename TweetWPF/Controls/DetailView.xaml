@@ -14,7 +14,7 @@
         <conv:CreatedAtConverter x:Key="CreatedAtConverter" />
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition />

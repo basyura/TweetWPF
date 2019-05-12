@@ -15,7 +15,8 @@
         <conv:CreatedAtConverter x:Key="CreatedAtConverter" />
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
-    
+
+    <Grid>
     <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single">
         <DataGrid.Resources>
             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{x:Static SystemColors.HighlightColor}"/>
