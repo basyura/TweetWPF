@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using Eleve;
 using TweetWPF.Controls;
 
@@ -12,16 +11,19 @@ namespace TweetWPF.Actions.TweetWPF
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            // todo : find view
+            DetailView detail = obj as DetailView;
+
             FrameworkElement ele = sender as FrameworkElement;
-            while (!(ele is DetailView))
+            while (!(ele is TimelineView))
             {
                 ele = ele.Parent as FrameworkElement;
             }
 
-            DetailView detail = ele as DetailView;
-            Grid grid = detail.Parent as Grid;
-            grid.Children.Remove(detail);
+            if (ele != null)
+            {
+                TimelineView view = ele as TimelineView;
+                view.Remove(detail);
+            }
 
             return SuccessTask;
         }

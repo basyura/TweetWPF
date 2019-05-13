@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Eleve;
 using TweetWPF.Controls;
 
@@ -11,16 +11,17 @@ namespace TweetWPF.Actions.TweetWPF
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
+            if (HasParent<ScrollBar>(args))
+            {
+                return SuccessTask;
+            }
+
             TimelineView view = sender as TimelineView;
 
-            Grid grid = view.Parent as Grid;
-
-            DetailView detail = new DetailView()
+            view.Append(new DetailView()
             {
                 DataContext = ViewModel.SelectedTweet
-            };
-
-            grid.Children.Add(detail);
+            });
 
             return SuccessTask;
         }

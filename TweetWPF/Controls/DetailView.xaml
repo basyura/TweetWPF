@@ -8,6 +8,7 @@
              xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
              xmlns:conv="clr-namespace:TweetWPF.Controls.Coverters"
              mc:Ignorable="d" 
+             Name="_DetailView"
              d:DesignHeight="600" d:DesignWidth="400">
     <UserControl.Resources>
         <conv:ScreenNameConverter x:Key="ScreenNameConverter" />
@@ -22,7 +23,7 @@
         <Button Content="＜＜" Width="40" HorizontalAlignment="Left">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <ev:Execute Action="BackToTimeline" />
+                    <ev:Execute Action="BackToTimeline" ActionParameter="{Binding ElementName=_DetailView}"  />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
