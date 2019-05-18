@@ -13,32 +13,32 @@ namespace TweetWPF.Actions.TweetWPF
             string key = obj as string;
             if (string.IsNullOrEmpty(key))
             {
-                return SuccessTask;
+                return OK;
             }
 
             ITweet tweet = ViewModel.SelectedTweet;
             if (tweet == null)
             {
-                return SuccessTask;
+                return OK;
             }
 
             if (key == "fav")
             {
                 Tweet.FavoriteTweet(tweet);
-                return SuccessTask;
+                return OK;
             }
 
             if (key == "rewtweet")
             {
                 Tweet.PublishRetweet(tweet);
-                return SuccessTask;
+                return OK;
             }
 
             if (key == "reply")
             {
             }
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

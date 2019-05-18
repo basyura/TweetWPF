@@ -23,7 +23,7 @@ namespace TweetWPF.Actions.TweetWPF
             if (user == null)
             {
                 ViewModel.Message = "failed to authenticate.";
-                return SuccessTask;
+                return OK;
             }
 
             ViewModel.User = user;
@@ -47,7 +47,7 @@ namespace TweetWPF.Actions.TweetWPF
                 }
             }
 
-            return SuccessTask;
+            return OK;
         }
         /// <summary>
         /// 

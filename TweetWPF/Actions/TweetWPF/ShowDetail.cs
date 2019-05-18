@@ -13,7 +13,7 @@ namespace TweetWPF.Actions.TweetWPF
         {
             if (HasParent<ScrollBar>(args))
             {
-                return SuccessTask;
+                return OK;
             }
 
             TimelineView view = sender as TimelineView;
@@ -23,7 +23,7 @@ namespace TweetWPF.Actions.TweetWPF
                 DataContext = ViewModel.SelectedTweet
             });
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

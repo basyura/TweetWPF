@@ -25,7 +25,7 @@ namespace TweetWPF.Actions.TweetWPF
                 view.Remove(detail);
             }
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

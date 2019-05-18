@@ -14,7 +14,7 @@ namespace TweetWPF.Actions.TweetWPF
 
             if (string.IsNullOrEmpty(text))
             {
-                return SuccessTask;
+                return OK;
             }
             
             try
@@ -31,7 +31,7 @@ namespace TweetWPF.Actions.TweetWPF
                 // todo
             }
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

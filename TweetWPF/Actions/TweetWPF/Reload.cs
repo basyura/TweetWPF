@@ -33,7 +33,7 @@ namespace TweetWPF.Actions.TweetWPF
 
             ViewModel.IsReloadEnabled = true;
 
-            return SuccessTask;
+            return OK;
         }
         /// <summary>
         /// 
